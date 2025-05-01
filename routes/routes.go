@@ -14,6 +14,7 @@ func RegisterRoutes(router *gin.Engine) {
 
 		api.GET("/products", controllers.GetAllProducts)
 		api.GET("/products/:id", controllers.GetProductByID)
+		api.GET("/products-by-admin", controllers.GetProductsByAdminID)
 
 		auth := api.Group("/")
 		auth.Use(middleware.AuthMiddleware(), middleware.AdminOnly())

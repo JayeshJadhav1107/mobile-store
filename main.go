@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
 	"log"
-	"os"
 
 	"github.com/jayeshjadhav/mobile-store/config"
 	"github.com/jayeshjadhav/mobile-store/middleware"
@@ -31,7 +29,7 @@ func main() {
 	// 	c.JSON(200, gin.H{"message": "API running!"})
 	// })
 	routes.RegisterRoutes(r)
-	fmt.Println("JWT Secret:", os.Getenv("JWT_SECRET"))
+	// fmt.Println("JWT Secret:", os.Getenv("JWT_SECRET"))
 
 	r.Run() // default on localhost:8080
 }

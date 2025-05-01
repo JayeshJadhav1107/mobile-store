@@ -1,14 +1,13 @@
 package utils
 
 import (
-	"fmt"
 	"os"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
 )
 
-var jwtSecret = []byte(os.Getenv("JWT_SECRET"))
+// var jwtSecret = []byte(os.Getenv("JWT_SECRET"))
 
 type JWTClaim struct {
 	UserID uint   `json:"user_id"`
@@ -19,7 +18,7 @@ type JWTClaim struct {
 
 func GenerateJWT(userID uint, email, role string) (string, error) {
 	secret := os.Getenv("JWT_SECRET")
-	fmt.Println("🔐 Using JWT secret to sign:", secret)
+	// fmt.Println("Using JWT secret to sign:", secret)
 
 	claims := &JWTClaim{
 		UserID: userID,

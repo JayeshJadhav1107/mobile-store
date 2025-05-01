@@ -20,10 +20,10 @@ func AuthMiddleware() gin.HandlerFunc {
 		}
 
 		tokenString := strings.TrimPrefix(authHeader, "Bearer ")
-		fmt.Println("🔐 Token received:", tokenString)
+		// fmt.Println("Token received:", tokenString)
 
 		secret := os.Getenv("JWT_SECRET")
-		fmt.Println("🔑 Loaded JWT Secret:", secret)
+		// fmt.Println("Loaded JWT Secret:", secret)
 
 		if secret == "" {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "JWT secret not configured"})
@@ -39,7 +39,7 @@ func AuthMiddleware() gin.HandlerFunc {
 		})
 
 		if err != nil || !token.Valid {
-			fmt.Println("❌ Token verification failed:", err)
+			fmt.Println("Token verification failed:", err)
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
 			c.Abort()
 			return
@@ -47,7 +47,7 @@ func AuthMiddleware() gin.HandlerFunc {
 
 		claims, ok := token.Claims.(jwt.MapClaims)
 		if !ok || !token.Valid {
-			fmt.Println("❌ Token verification failed:", err)
+			fmt.Println("Token verification failed:", err)
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
 			c.Abort()
 			return
@@ -59,7 +59,7 @@ func AuthMiddleware() gin.HandlerFunc {
 		c.Set("userID", userID)
 		c.Set("userRole", role)
 
-		fmt.Println("✅ Token verified successfully for user:", userID)
+		// fmt.Println("Token verified successfully for user:", userID)
 		c.Next()
 
 	}

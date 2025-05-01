@@ -8,4 +8,5 @@ type Product struct {
 	Description string  `json:"description"`
 	Price       float64 `json:"price"`
 	CreatedByID uint    `json:"created_by"` // FK to User
+	Url         string  `json:"url"`
 }

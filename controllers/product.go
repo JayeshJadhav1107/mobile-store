@@ -52,6 +52,26 @@ func GetProductByID(c *gin.Context) {
 	c.JSON(http.StatusOK, product)
 }
 
+func GetProductsByAdminID(c *gin.Context) {
+	// Get the admin ID from the query parameter
+	adminID := c.Query("admin_id")
+	//fmt.Println("Admin ID received in the request:", adminID) // Print the admin_id to console for debugging
+	if adminID == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Admin ID is required"})
+		return
+	}
+
+	var products []models.Product
+	// Fetch products where created_by_id matches the admin ID
+	if err := config.DB.Where("created_by_id = ?", adminID).Find(&products).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch products for admin"})
+		return
+	}
+
+	// Return the fetched products
+	c.JSON(http.StatusOK, products)
+}
+
 func UpdateProduct(c *gin.Context) {
 	id := c.Param("id")
 	var product models.Product
