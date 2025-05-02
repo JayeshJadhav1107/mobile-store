@@ -30,7 +30,7 @@ This repository contains **only the backend** code of the full-stack Mobile Stor
 
 ##  Tech Stack
 
-- Go 1.20+
+- Go 1.24+
 - Gin web framework
 - MySQL 8+
 - GORM (ORM)
