@@ -44,7 +44,7 @@ This repository contains **only the backend** code of the full-stack Mobile Stor
 ### 1. Clone the repo
 ```bash
 git clone https://github.com/JayeshJadhav1107/mobile-store.git
-cd mobile-store-backend 
+cd mobile-store 
 ```
 ### Run the app
 ```
