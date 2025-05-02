@@ -6,6 +6,9 @@ It provides REST APIs for user authentication, product management, and role-base
 
 ---
 
+## Loom Walkthrough
+https://www.loom.com/share/e6989aae5b1542bf8742020489ad8430?sid=d63aebe2-afdf-4caa-b57d-6c29da6bc19c  
+
 ##  About This Repo
 
 This repository contains **only the backend** code of the full-stack Mobile Store application.
@@ -41,4 +44,10 @@ This repository contains **only the backend** code of the full-stack Mobile Stor
 ### 1. Clone the repo
 ```bash
 git clone https://github.com/your-username/mobile-store-backend.git
-cd mobile-store-backend
+cd mobile-store-backend 
+```
+### Run the app
+```
+go mod tidy
+go run main.go
+
